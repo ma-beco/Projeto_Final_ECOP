@@ -1,0 +1,58 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"10 delay.c
+[; ;delay.c: 10: void delay(int x){
+[v _delay `(v ~T0 @X0 1 ef1`i ]
+{
+[e :U _delay ]
+[v _x `i ~T0 @X0 1 r1 ]
+[f ]
+"11
+[; ;delay.c: 11:     while(x>0){
+[e $U 2  ]
+[e :U 3 ]
+{
+"12
+[; ;delay.c: 12:         volatile unsigned char j, k;
+[v _j `Vuc ~T0 @X0 1 a ]
+[v _k `Vuc ~T0 @X0 1 a ]
+"13
+[; ;delay.c: 13:         for(j = 0; j < 41; j++) {
+{
+[e = _j -> -> 0 `i `uc ]
+[e $ < -> _j `i -> 41 `i 5  ]
+[e $U 6  ]
+[e :U 5 ]
+{
+"14
+[; ;delay.c: 14:             for(k = 0; k < 3; k++);
+{
+[e = _k -> -> 0 `i `uc ]
+[e $ < -> _k `i -> 3 `i 8  ]
+[e $U 9  ]
+[e :U 8 ]
+[e ++ _k -> -> 1 `i `Vuc ]
+[e $ < -> _k `i -> 3 `i 8  ]
+[e :U 9 ]
+}
+"15
+[; ;delay.c: 15:         }
+}
+[e ++ _j -> -> 1 `i `Vuc ]
+[e $ < -> _j `i -> 41 `i 5  ]
+[e :U 6 ]
+}
+"16
+[; ;delay.c: 16:         x--;
+[e -- _x -> 1 `i ]
+"17
+[; ;delay.c: 17:     }
+}
+[e :U 2 ]
+"11
+[; ;delay.c: 11:     while(x>0){
+[e $ > _x -> 0 `i 3  ]
+[e :U 4 ]
+"18
+[; ;delay.c: 18: }
+[e :UE 1 ]
+}
